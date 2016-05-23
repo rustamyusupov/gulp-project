@@ -82,9 +82,9 @@ lazyRequireTask('ghpages', './tasks/ghpages', {
 
 function watch() {
   gulp.watch(paths.watch.fonts, gulp.series('fonts'));
-  gulp.watch(paths.watch.images, gulp.series('images'));
+  gulp.watch(paths.watch.img, gulp.series('images'));
   gulp.watch(paths.watch.js, gulp.series('js'));
-  gulp.watch(paths.watch.style, gulp.series('styles'));
+  gulp.watch(paths.watch.styles, gulp.series('styles'));
   gulp.watch(paths.watch.html, gulp.series('html'));
 }
 
