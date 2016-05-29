@@ -26,12 +26,12 @@ let paths = {
     styles: 'src/sass/**/*.scss',
     html: 'src/**/*.html'
   },
-  clean: './build',
-  deploy: './build/**/*'
+  clean: 'build/**/*',
+  deploy: 'build/**/*'
 };
 
 let config = {
-  server: "./build",
+  server: './build',
   host: 'localhost',
   port: 3000
 };
@@ -102,8 +102,11 @@ function serve() {
 exports.watch = watch;
 exports.serve = serve;
 
-let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'js', 'styles'), 'svg', 'html');
+// process.env.NODE_ENV = 'production';
+
+let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles'), 'svg', 'html'); //'js',
+let deploy = gulp.series('ghpages');
 
 gulp.task('build', build);
-gulp.task('deploy', gulp.series('ghpages'));
+gulp.task('deploy', deploy);
 gulp.task('default', gulp.series(build, gulp.parallel(watch, serve)));

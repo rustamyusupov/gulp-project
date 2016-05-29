@@ -15,11 +15,14 @@ module.exports = function styles(options) {
       gulp.src(options.src),
       $.debug({title: 'styles'}),
       $.if(isDev, $.sourcemaps.init()),
-      $.sass(),
+      $.sass({
+        outputStyle: 'expanded'
+      }),
       $.postcss([
         autoprefixer({browsers: ['last 2 version']}),
         mqpacker
       ]),
+      gulp.dest(options.build),
       $.if(!isDev, $.csso()),
       $.rename('style.min.css'),
       $.debug({title: 'rename:'}),

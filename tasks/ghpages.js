@@ -1,13 +1,13 @@
 'use strict';
 
 const gulp = require('gulp');
-const $ = require('gulp-load-plugins')();
+const ghPages = require('gulp-gh-pages');
 
 module.exports = function ghpages(options) {
 
   return function() {
     return gulp.src(options.src)
-      .pipe($.gh-pages());
+      .pipe(ghPages());
   };
 
 };
