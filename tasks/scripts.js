@@ -13,9 +13,11 @@ module.exports = function js(options) {
       gulp.src(options.src),
       $.debug({title: 'js'}),
       $.if(isDev, $.sourcemaps.init()),
-      $.babel(),
+      // $.babel(),
+      $.concat('script.js'),
+      gulp.dest(options.build),
       $.if(!isDev, $.uglify()),
-      $.concat('script.min.js'),
+      $.rename('script.min.js'),
       $.if(isDev, $.sourcemaps.write()),
       gulp.dest(options.build)
     ).on('error', $.notify.onError(function(err) {
