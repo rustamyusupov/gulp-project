@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create();
 
 let paths = {
   src: {
-    fonts: 'src/fonts/*.{eot,svg,woff,ttf}',
+    fonts: 'src/fonts/*.{eot,svg,woff,ttf,otf}',
     img: 'src/img/*.{png,jpg,gif}',
     svg: 'src/img/*.svg',
     js: 'src/js/*.js',
@@ -20,7 +20,7 @@ let paths = {
     html: 'build/'
   },
   watch: {
-    fonts: 'src/fonts/**/*.{eot,svg,woff,ttf}',
+    fonts: 'src/fonts/**/*.{eot,svg,woff,ttf,otf}',
     img: 'src/img/**/*.{png,jpg,gif,svg}',
     js: 'src/js/**/*.js',
     styles: 'src/sass/**/*.scss',
@@ -104,7 +104,7 @@ exports.serve = serve;
 
 // process.env.NODE_ENV = 'production';
 
-let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles'), 'svg', 'html'); //'js',
+let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js'), 'svg', 'html');
 let deploy = gulp.series('ghpages');
 
 gulp.task('build', build);
