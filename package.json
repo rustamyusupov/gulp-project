@@ -1,6 +1,6 @@
 {
   "name": "gulp-project",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "template for project on gulp",
   "author": "Rustam Yusupov",
@@ -37,6 +37,7 @@
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
     "gulp-uglify": "^1.5.3",
+    "postcss-sorting": "^1.5.0",
     "stream-combiner2": "^1.1.1"
   },
   "scripts": {

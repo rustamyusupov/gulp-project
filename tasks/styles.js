@@ -5,6 +5,7 @@ const $ = require('gulp-load-plugins')();
 const combine = require('stream-combiner2').obj;
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
+const sorting = require('postcss-sorting');
 
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -19,8 +20,11 @@ module.exports = function styles(options) {
         outputStyle: 'expanded'
       }),
       $.postcss([
-        autoprefixer({browsers: ['last 2 version']}),
-        mqpacker
+        autoprefixer,
+        mqpacker({
+          sort: true
+        }),
+        sorting
       ]),
       gulp.dest(options.build),
       $.if(!isDev, $.csso()),
