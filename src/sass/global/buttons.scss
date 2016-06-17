@@ -6,26 +6,11 @@
   text-decoration: none;
   vertical-align: top;
 
-  &:hover,
-  &--hover {
+  &:hover {
 
   }
 
-  &:active,
-  &--active {
+  &:active {
 
-  }
-
-  &--modify {
-
-    &:hover,
-    &--hover {
-
-    }
-
-    &:active,
-    &--active {
-
-    }
   }
 }
