@@ -26,7 +26,7 @@ module.exports = function styles(options) {
         }),
         sorting
       ]),
-      gulp.dest(options.build),
+      $.if(options.transfer, gulp.dest(options.build)),
       $.if(!isDev, $.csso()),
       $.rename('style.min.css'),
       $.debug({title: 'rename:'}),

@@ -15,7 +15,7 @@ module.exports = function js(options) {
       $.if(isDev, $.sourcemaps.init()),
       // $.babel(),
       $.concat('script.js'),
-      gulp.dest(options.build),
+      $.if(options.transfer, gulp.dest(options.build)),
       $.if(!isDev, $.uglify()),
       $.rename('script.min.js'),
       $.if(isDev, $.sourcemaps.write()),

@@ -1,5 +1,8 @@
 'use strict';
 
+// process.env.NODE_ENV = 'production';
+let transfer = false;
+
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
@@ -64,12 +67,14 @@ lazyRequireTask('svg', './tasks/svg', {
 
 lazyRequireTask('js', './tasks/scripts', {
   src: paths.src.js,
-  build: paths.build.js
+  build: paths.build.js,
+  transfer: transfer
 });
 
 lazyRequireTask('styles', './tasks/styles', {
   src: paths.src.styles,
-  build: paths.build.css
+  build: paths.build.css,
+  transfer: transfer
 });
 
 lazyRequireTask('html', './tasks/html', {
@@ -101,8 +106,6 @@ function serve() {
 
 exports.watch = watch;
 exports.serve = serve;
-
-// process.env.NODE_ENV = 'production';
 
 let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js'), 'svg', 'html');
 let deploy = gulp.series('ghpages');
