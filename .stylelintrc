@@ -6,7 +6,7 @@
     "color-no-hex": null,
     "color-no-invalid-hex": true,
 
-    "font-family-name-quotes": "double-unless-keyword",
+    "font-family-name-quotes": "always-unless-keyword",
     "font-weight-notation": null,
 
     "function-blacklist": null,
@@ -21,14 +21,14 @@
     "function-parentheses-newline-inside": null,
     "function-parentheses-space-inside": "never",
     "function-url-data-uris": null,
-    "function-url-quotes": "double",
+    "function-url-quotes": "always",
     "function-whitelist": null,
     "function-whitespace-after": "always",
 
     "number-leading-zero": "always",
     "number-max-precision": null,
     "number-no-trailing-zeros": true,
-    "number-zero-length-no-unit": true,
+    "length-zero-no-unit": true,
 
     "string-no-newline": true,
     "string-quotes": "double",
