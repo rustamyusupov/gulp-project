@@ -9,11 +9,12 @@ const browserSync = require('browser-sync').create();
 let paths = {
   src: {
     fonts: 'src/fonts/*.{eot,svg,woff,ttf,otf}',
-    img: 'src/img/*.{png,jpg,gif}',
+    img: 'src/img/*.{png,jpg,gif,svg}',
     svg: 'src/img/*.svg',
     js: 'src/js/*.js',
     styles: 'src/sass/style.scss',
-    html: 'src/*.html'
+    html: 'src/*.html',
+    php: 'src/*.php'
   },
   build: {
     fonts: 'build/fonts/',
@@ -27,7 +28,8 @@ let paths = {
     img: 'src/img/**/*.{png,jpg,gif,svg}',
     js: 'src/js/**/*.js',
     styles: 'src/sass/**/*.scss',
-    html: 'src/**/*.html'
+    html: 'src/**/*.html',
+    php: 'src/**/*.php'
   },
   clean: 'build/**/*',
   deploy: 'build/**/*'
@@ -36,7 +38,8 @@ let paths = {
 let config = {
   server: './build',
   host: 'localhost',
-  port: 3000
+  port: 3000,
+  open: false
 };
 
 function lazyRequireTask(name, path, options) {
@@ -71,6 +74,11 @@ lazyRequireTask('js', './tasks/scripts', {
   transfer: transfer
 });
 
+lazyRequireTask('php', './tasks/php', {
+  src: paths.src.php,
+  build: paths.build.html
+});
+
 lazyRequireTask('styles', './tasks/styles', {
   src: paths.src.styles,
   build: paths.build.css,
@@ -94,6 +102,7 @@ function watch() {
   gulp.watch(paths.watch.fonts, gulp.series('fonts'));
   gulp.watch(paths.watch.img, gulp.series('images', 'svg'));
   gulp.watch(paths.watch.js, gulp.series('js'));
+  gulp.watch(paths.watch.php, gulp.series('php'));
   gulp.watch(paths.watch.styles, gulp.series('styles'));
   gulp.watch(paths.watch.html, gulp.series('html'));
 }
@@ -107,7 +116,7 @@ function serve() {
 exports.watch = watch;
 exports.serve = serve;
 
-let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js'), 'svg', 'html');
+let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js', 'php'), 'svg', 'html');
 let deploy = gulp.series('ghpages');
 
 gulp.task('build', build);
