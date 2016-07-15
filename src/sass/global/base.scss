@@ -1,9 +1,7 @@
 body {
-/*   @include font($segoe, 20px, 400);
+  @include font($ptsans, 16px, 20px, 400);
 
-background-color: $white;
-color: $black;
-line-height: px; */
+  color: $white;
 }
 
 h1,

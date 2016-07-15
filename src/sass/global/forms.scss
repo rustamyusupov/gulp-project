@@ -10,6 +10,14 @@ input[type="password"] {
   &:focus {
 
   }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+*:focus {
+  outline: none;
 }
 
 label {
