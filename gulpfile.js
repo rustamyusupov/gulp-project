@@ -8,7 +8,7 @@ const browserSync = require('browser-sync').create();
 
 let paths = {
   src: {
-    fonts: 'src/fonts/*.{eot,svg,woff,ttf,otf}',
+    fonts: 'src/fonts/*.*',
     img: 'src/img/*.{png,jpg,gif,svg}',
     svg: 'src/img/*.svg',
     js: 'src/js/*.js',
@@ -24,8 +24,8 @@ let paths = {
     html: 'build/'
   },
   watch: {
-    fonts: 'src/fonts/**/*.{eot,svg,woff,ttf,otf}',
-    img: 'src/img/**/*.{png,jpg,gif,svg}',
+    fonts: 'src/fonts/*.*',
+    img: 'src/img/*.*',
     js: 'src/js/**/*.js',
     styles: 'src/sass/**/*.scss',
     html: 'src/**/*.html',
