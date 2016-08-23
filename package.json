@@ -6,10 +6,10 @@
   "author": "Rustam Yusupov",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rustamyusupov/gulp-project.git"
+    "url": "git@github.com:rustamyusupov/gulp-project.git"
   },
   "bugs": {
-    "url": "https://github.com/rustamyusupov/gulp-project/issues"
+    "url": "git@github.com:rustamyusupov/gulp-project/issues"
   },
   "homepage": "",
   "devDependencies": {
