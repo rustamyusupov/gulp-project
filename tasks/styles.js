@@ -7,9 +7,9 @@ const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
 const sorting = require('postcss-sorting');
 
-const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+let isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
-module.exports = function styles(options) {
+function styles(options) {
 
   return function() {
     return combine(
@@ -40,4 +40,6 @@ module.exports = function styles(options) {
     }));
   };
 
-};
+}
+
+module.exports = styles;

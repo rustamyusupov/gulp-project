@@ -3,13 +3,15 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-module.exports = function php(options) {
+function extra(options) {
 
   return function() {
-    return gulp.src(options.src, {since: gulp.lastRun(php)})
+    return gulp.src(options.src, {since: gulp.lastRun(extra)})
       .pipe($.newer(options.build))
-      .pipe($.debug({title: 'php'}))
+      .pipe($.debug({title: 'extra'}))
       .pipe(gulp.dest(options.build));
   };
 
-};
+}
+
+module.exports = extra;

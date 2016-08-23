@@ -3,7 +3,7 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-module.exports = function svg(options) {
+function svg(options) {
 
   return function() {
     return gulp.src(options.src)
@@ -25,4 +25,6 @@ module.exports = function svg(options) {
       .pipe(gulp.dest(options.build));
   };
 
-};
+}
+
+module.exports = svg;

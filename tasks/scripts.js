@@ -4,9 +4,9 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const combine = require('stream-combiner2').obj;
 
-const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+let isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
-module.exports = function js(options) {
+function js(options) {
 
   return function() {
     return combine(
@@ -28,4 +28,6 @@ module.exports = function js(options) {
     }));
   };
 
-};
+}
+
+module.exports = js;

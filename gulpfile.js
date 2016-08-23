@@ -1,6 +1,5 @@
 'use strict';
 
-// process.env.NODE_ENV = 'production';
 let transfer = false;
 
 const gulp = require('gulp');
@@ -14,7 +13,7 @@ let paths = {
     js: 'src/js/*.js',
     styles: 'src/sass/style.scss',
     html: 'src/*.html',
-    php: 'src/*.php'
+    extra: 'src/*.{php,ico}'
   },
   build: {
     fonts: 'build/fonts/',
@@ -29,7 +28,7 @@ let paths = {
     js: 'src/js/**/*.js',
     styles: 'src/sass/**/*.scss',
     html: 'src/**/*.html',
-    php: 'src/**/*.php'
+    extra: 'src/**/*.{php,ico}'
   },
   clean: 'build/**/*',
   deploy: 'build/**/*'
@@ -74,8 +73,8 @@ lazyRequireTask('js', './tasks/scripts', {
   transfer: transfer
 });
 
-lazyRequireTask('php', './tasks/php', {
-  src: paths.src.php,
+lazyRequireTask('extra', './tasks/extra', {
+  src: paths.src.extra,
   build: paths.build.html
 });
 
@@ -102,7 +101,7 @@ function watch() {
   gulp.watch(paths.watch.fonts, gulp.series('fonts'));
   gulp.watch(paths.watch.img, gulp.series('images', 'svg'));
   gulp.watch(paths.watch.js, gulp.series('js'));
-  gulp.watch(paths.watch.php, gulp.series('php'));
+  gulp.watch(paths.watch.php, gulp.series('extra'));
   gulp.watch(paths.watch.styles, gulp.series('styles'));
   gulp.watch(paths.watch.html, gulp.series('html'));
 }
@@ -116,7 +115,7 @@ function serve() {
 exports.watch = watch;
 exports.serve = serve;
 
-let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js', 'php'), 'svg', 'html');
+let build = gulp.series('clean', gulp.parallel('fonts', 'images', 'styles', 'js', 'extra'), 'svg', 'html');
 let deploy = gulp.series('ghpages');
 
 gulp.task('build', build);

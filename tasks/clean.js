@@ -2,10 +2,12 @@
 
 const del = require('del');
 
-module.exports = function clean(options) {
+function clean(options) {
 
   return function() {
     return del(options.src);
   };
 
-};
+}
+
+module.exports = clean;

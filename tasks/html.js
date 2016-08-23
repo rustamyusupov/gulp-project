@@ -3,7 +3,7 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-module.exports = function html(options) {
+function html(options) {
 
   return function() {
     return gulp.src(options.src, {since: gulp.lastRun(html)})
@@ -12,4 +12,6 @@ module.exports = function html(options) {
       .pipe(gulp.dest(options.build));
   };
 
-};
+}
+
+module.exports = html;

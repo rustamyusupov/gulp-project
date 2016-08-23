@@ -3,7 +3,7 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-module.exports = function fonts(options) {
+function fonts(options) {
 
   return function() {
     return gulp.src(options.src , {since: gulp.lastRun(fonts)})
@@ -12,4 +12,6 @@ module.exports = function fonts(options) {
       .pipe(gulp.dest(options.build));
   };
 
-};
+}
+
+module.exports = fonts;
