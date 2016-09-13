@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
+const pngquant = require('imagemin-pngquant');
 
 function images(options) {
 
@@ -10,8 +11,8 @@ function images(options) {
       .pipe($.newer(options.build))
       .pipe($.debug({title: 'images'}))
       .pipe($.imagemin({
-        optimizationLevel: 5,
-        progressive: true
+        progressive: true,
+        use: [pngquant()]
       }))
       .pipe(gulp.dest(options.build));
   };
