@@ -1,6 +1,6 @@
 {
   "name": "gulp-project",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "MIT",
   "description": "template for project on gulp",
   "author": "Rustam Yusupov",
@@ -41,7 +41,7 @@
     "stream-combiner2": "1.1.1"
   },
   "scripts": {
-    "dev": "NODE_ENV=development gulp",
+    "start": "NODE_ENV=development gulp",
     "build": "NODE_ENV=production gulp build",
     "deploy": "gulp deploy"
   }
