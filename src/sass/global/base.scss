@@ -4,6 +4,13 @@ body {
   color: $white;
 }
 
+/**
+ * Prevent font boosting.
+ */
+html * {
+  max-height: 1000000px;
+}
+
 h1,
 h2,
 h3,
