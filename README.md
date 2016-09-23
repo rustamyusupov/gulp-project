@@ -3,16 +3,16 @@
 ## Установка шаблона
 
 ``` sh
-$ git clone https://github.com/rustamyusupov/gulp-project.git project && cd project
+$ git clone https://github.com/rustamyusupov/gulp-project.git project
 $ npm i
 ```
 
 
-### Задачи gulp
+### Запуск
 
- - `$ gulp` - запуск разработки с локальным сервером
- - `$ gulp build` - сборка проекта
- - `$ gulp deploy` - публикация на gh-pages
+ - `$ npm start` - разработка с локальным сервером
+ - `$ npm run build` - сборка проекта
+ - `$ npm run deploy` - публикация на gh-pages
 
 
 ## Общая концепция
