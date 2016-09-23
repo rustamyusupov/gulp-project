@@ -9,7 +9,9 @@ function images(options) {
   return function() {
     return gulp.src(options.src, {since: gulp.lastRun(images)})
       .pipe($.newer(options.build))
-      .pipe($.debug({title: 'images'}))
+      .pipe($.debug({
+        title: 'images'
+      }))
       .pipe($.imagemin({
         progressive: true,
         use: [pngquant()]

@@ -1,16 +1,16 @@
 'use strict';
 
-let transfer = false;
+const transfer = false;
 
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
-let paths = {
+const paths = {
   src: {
     fonts: 'src/fonts/*.*',
     img: 'src/img/*.{png,jpg,gif,svg}',
     svg: 'src/img/*.svg',
-    js: 'src/js/*.js',
+    js: 'src/js/script.js',
     styles: 'src/sass/style.scss',
     html: 'src/*.html',
     extra: 'src/*.{php,ico}'
@@ -34,7 +34,7 @@ let paths = {
   deploy: 'build/**/*'
 };
 
-let config = {
+const config = {
   server: './build',
   host: 'localhost',
   port: 3000,

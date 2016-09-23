@@ -8,7 +8,9 @@ function html(options) {
   return function() {
     return gulp.src(options.src, {since: gulp.lastRun(html)})
       .pipe($.newer(options.build))
-      .pipe($.debug({title: 'html'}))
+      .pipe($.debug({
+        title: 'html'
+      }))
       .pipe(gulp.dest(options.build));
   };
 
